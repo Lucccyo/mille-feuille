@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{array,multirow,makecell}
+\usepackage{enumitem}
+\usepackage{cellspace}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}% http://ctan.org/pkg/booktabs
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+ %\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
+
+\setlength\cellspacetoplimit{5pt}
+\setlength\cellspacebottomlimit{5pt}
+\addparagraphcolumntypes{X}
+\renewcommand\tabularxcolumn[1]{m{#1}}
+
+
+
+\setcellgapes{1pt}
+\makegapedcells
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+
+\title{math_revision}
+\author{Charlène Gros}
+\date{October 2022}
+
+\begin{document}
+
+\section*{Nombres complexes $\mathbb{C}$}
+\paragraph{Module de z.} 
+$|z|= \sqrt{a^2+b^2}$
+\paragraph{Argument de z.} 
+$arg(z) \equiv \theta \pmod{2\pi}$
+\paragraph{Écriture trigonométrique.}
+$z = |z|(\cos{\theta} + i\sin{\theta})$
+\paragraph{Écriture expenentielle.}
+$z = |z|e^{i\theta}$
+\paragraph{Carré d'un nombre complexe.}
+Soit  $z_{1} = \phi + i\omega$, et on sait que $|z^2| = |z_{1}|$.
+On cherche z tel que  $z^2 = z_{1} = a^2-b^2+2iab$.
+On en déduit le système suivant:
+%\begin{equation*}
+%     \begin{cases}
+%        $a^2$ - $b^2$ = $\phi$ \\
+%        2ab = $\omega$ \\
+%        a^2 + b^2 = $|z_{1}|$ \\
+%     \end{cases}
+%     \begin{cases}
+%        $a = A \\
+%        b = B \\
+%        ab = \pm AB$ \\
+%     \end{cases}
+%\end{equation*}
+On déduit de ce système les \textbf{2} couples solutions, suivant le signe de $ab$, avec $a = \Re(z)$ et $b = \Im(z)$.
+
+\section*{Intégrales et décomposition en éléments simple}
+
+\paragraph{Puissance numérateur $>$ puissance dénominateur.}Réaliser une division euclidienne.
+\paragraph{Méthode.} Prenons $I_{1} = \frac{x^3+2x-4}{(x^2+x+1)^2}$.
+\newline On note $I_{1}$ sous la forme $I_{1} = \frac{ax+b}{(x^2+x+1)} + \frac{cx+d}{(x^2+x+1)^2}$.
+On cherche les valeurs de $a, b$ et $c$ pour $I_{1}$.
+\begin{itemize}
+    \item Recherche de $c$ et $d$: $(x^2+x+1)^2I_{1}(x) = -4+i\sqrt{3} = ci+d $ 
+        \newline avec $x = j = \frac{-1}{2}+i\sqrt{3}$
+    
+    \item Recherche de $a$ par la limite, on multiplie par $x$: $xI_{1}(x) = \frac{x^4+2x^2-4x}{(x^2+x+1)^2}$ 
+        \newline avec $x = j = \frac{-1}{2}+i\sqrt{3}$
+        \newline $xI_{1} = \frac{x^4+2x^2-4x}{(x^2+x+1)^2} = \frac{ax^2+bx}{(x^2+x+1)} + \frac{cx^2+dx}{(x^2+x+1)^2}$
+        \newline $\lim\limits_{x \rightarrow +\infty} xI_{1} = 1 = a$
+    
+    \item Recherche de b par le calcul: $I_{1}(0) = -4 = b + d$, donc $b = -1$
+\end{itemize}
+
+\section*{Équation differentielle}
+
+
+%\hypertarget{boiteaz}{Boite à z}
+\paragraph[Boite à z]{\hypertarget{boiteaz}{Boite à z}}
+trouver un facteur à un membre exponentiel
+Rappel: cos(t) = RE(eit) et sin = IM(eît)
+tracer le tableau passant de u à z avec
+les exponentielles
+on trouve ensuite z-(lambda1+lambda2)
+z+(lambda1+lambda2)z = facteur de l'exponentielle
+on pose la forme de z et on trouve la forme de z
+ et z puis on cherche les inconnues. 
+  
+  
+  
+\begin{table}
+\centering
+\begin{tabular}{|l|l|l|l|} 
+\hline
+\multicolumn{2}{|l|}{} & $1\ier$ Ordre & $2\ieme$ Ordre \\ 
+\hline
+\multicolumn{2}{|l|}{} & $u' + au = \phi (t)$ & $u'' + au' + bu = \phi (t)$ \\ 
+\hline
+\multicolumn{2}{|c|}{$u_h$} & \begin{tabular}[c]{@{}l@{}} Résoudre $u' + au = 0$ \\
+                                $\Leftrightarrow$ $u' = \omega  u$. \\ 
+                                $u_h = \lambda ^{\omega t}$
+                              \end{tabular}
+                            & \begin{tabular}[c]{@{}l@{}} On pose $r^2$ + ar + b = 0 puis calculer
+                                \\le discriminant $\Delta$.\\
+                                    \tabitem $\Delta > 0$ : solutions réelles $r_1$ et $r_2$ : \\
+                                             $u_h = \lambda _1 e^{r_1 t} + \lambda _2 e^{r_2 t}$ \\ 
+                                    \tabitem $\Delta = 0$ : solutions réelles doubles $r_0$ : \\
+                                             $u_h = (\lambda _1 t + \lambda _2) e^{r_0 t} $ \\
+                                    \tabitem $\Delta < 0$ : solutions complexes $r_i$ :\\
+                                             $r_i = \delta \pm i\omega$ : \\
+                                             $u_h = e^{\delta t}(\lambda (\cos{\omega t}) + \mu (\sin{\omega t}))$ \\ 
+                              \end{tabular}  \\
+\hline
+\multirow{3}{*}{$u_p$}   & \begin{tabular}{c}
+                                polynomial \\
+                                de degré $d$ 
+                              \end{tabular} 
+                            & \begin{tabular}[c]{@{}l@{}}
+                                    \tabitem $\omega \neq 0 \rightarrow u_p$ de degré $d$   \\
+                                    \tabitem $\omega   =  0 \rightarrow u_p$ de degré $d+1$ \\
+                                On trouve la forme de $u_p$ \\
+                                avec ses inconnues, \\
+                                et de $u_p'$ par dérivation. \\
+                                On résoud l'équation de \\
+                                départ avec $u_p$ qui est solution.
+                              \end{tabular} 
+                            & \begin{tabular}[c]{@{}l@{}}
+                                    \tabitem $b \neq 0 \rightarrow u_p$ de degré $d$ \\
+                                    \tabitem $b = 0$ et $a \neq 0 \rightarrow u_p$ de degré $d + 1$ \\
+                                    \tabitem $b = 0$ et $a = 0 \rightarrow u_p$ de degré $d + 2$ \\
+                                On trouve la forme de $u_p$ \\
+                                avec ses inconnues, \\
+                                ainsi que de $u_p'$ et $u_p''$ par
+                                dérivations, \\
+                                On résoud l'équation de \\
+                                départ avec $u_p$ qui est solution.
+                              \end{tabular} \\ 
+\cline{2-4}
+                            & \begin{tabular}{l}
+                                exponentiel \\
+                                $\phi (t) = e^{\nu t}$
+                              \end{tabular} 
+                            & \begin{tabular}[c]{@{}l@{}}
+                                    \tabitem $\omega \neq a \rightarrow u_p = \beta  e^{-\omega t}$\\
+                                    \tabitem $\omega   =  a \rightarrow u_p = \beta te^{-\omega t}$\\
+                                On trouve la forme de $u_p$ \\
+                                avec son inconnue $\beta$, \\
+                                et de $u_p'$ par dérivation. \\
+                                On résoud l'équation de \\
+                                départ avec $u_p$ qui est solution.  
+                              \end{tabular}
+                            & \begin{tabular}[c]{@{}l@{}}
+                                    \tabitem $\nu$ non racine  $\rightarrow u_p = \beta  e^{-\omega t}$\\
+                                    \tabitem $\nu$ racine simple $\rightarrow u_p = \beta  te^{-\omega t}$\\
+                                    \tabitem $\nu$ racine double $\rightarrow u_p = \beta  t^2e^{-\omega t}$\\
+                                Utiliser la méthode de \hyperlink{boiteaz}{la boite à z} \\
+                              \end{tabular}\\ 
+\cline{2-4}
+                            & \begin{tabular}{l}
+                                trigonométrique \\
+                                $\phi (t) = (\cos/\sin) {\nu t}$
+                              \end{tabular}
+                            & \begin{tabular}{l}
+                                $u_p = \mu \cos{\nu t} + \alpha \sin{\nu t}$ \\
+                                On calcule $u_p'$ et on résoud \\
+                                l'équation de départ avec $u_p$ \\
+                                qui est solution.
+                            \end{tabular}
+                            & \begin{tabular}[l]{@{}l@{}}
+                                Utiliser la méthode de \hyperlink{boiteaz}{la boite à z}\\
+                                avec $\cos{\omega t} = \Re (e^{it})$ \\
+                                et   $\sin{\omega t} = \Im (e^{it})$ \\
+                              \end{tabular}\\ 
+\hline
+\multicolumn{2}{|c|}{Cauchy}
+                            & \begin{tabular}{l}
+                                Résoudre l'équation finale avec \\
+                                $u(0)$. On obtient une \\ 
+                                valeur de $\lambda$.
+                              \end{tabular}
+                            & \begin{tabular}{l}
+                                Calculer $u'$, puis résoudre l'équation \\
+                                finale avec $u(0)$ et $u'(0)$. On obtient \\
+                                une valeur pour les inconnues de $u_h$.
+                              \end{tabular} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\end{document}
